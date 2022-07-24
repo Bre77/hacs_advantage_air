@@ -18,10 +18,6 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from .const import ADVANTAGE_AIR_STATE_OPEN, DOMAIN as ADVANTAGE_AIR_DOMAIN
 from .entity import AdvantageAirZoneEntity
 
-ADVANTAGE_AIR_SET_COUNTDOWN_VALUE = "minutes"
-ADVANTAGE_AIR_SET_COUNTDOWN_UNIT = "min"
-ADVANTAGE_AIR_SERVICE_SET_TIME_TO = "set_time_to"
-
 PARALLEL_UPDATES = 0
 
 
@@ -45,13 +41,6 @@ async def async_setup_entry(
             if zone["rssi"] > 0:
                 entities.append(AdvantageAirZoneSignal(instance, ac_key, zone_key))
     async_add_entities(entities)
-
-    platform = entity_platform.async_get_current_platform()
-    platform.async_register_entity_service(
-        ADVANTAGE_AIR_SERVICE_SET_TIME_TO,
-        {vol.Required("minutes"): cv.positive_int},
-        "set_time_to",
-    )
 
 
 class AdvantageAirZoneVent(AdvantageAirZoneEntity, SensorEntity):
