@@ -1,5 +1,5 @@
 """Config Flow for Advantage Air integration."""
-from advantage_air import ApiError, advantage_air
+from .advantage_air import ApiError, advantage_air
 import voluptuous as vol
 
 from homeassistant import config_entries

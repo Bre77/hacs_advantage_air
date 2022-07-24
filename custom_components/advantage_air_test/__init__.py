@@ -2,7 +2,7 @@
 from datetime import timedelta
 import logging
 
-from ./advantage_air_test import ApiError, advantage_air
+from .advantage_air_test import ApiError, advantage_air
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_IP_ADDRESS, CONF_PORT, Platform
