@@ -61,11 +61,15 @@ class AdvantageAirLight(AdvantageAirThingEntity, LightEntity):
 
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the light on."""
-        await self.async_change({"id": self._id, "state": ADVANTAGE_AIR_STATE_ON})
+        await self.async_change(
+            {self._id: {"id": self._id, "state": ADVANTAGE_AIR_STATE_ON}}
+        )
 
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the light off."""
-        await self.async_change({"id": self._id, "state": ADVANTAGE_AIR_STATE_OFF})
+        await self.async_change(
+            {self._id: {"id": self._id, "state": ADVANTAGE_AIR_STATE_OFF}}
+        )
 
 
 class AdvantageAirLightDimmable(AdvantageAirLight):
@@ -80,9 +84,9 @@ class AdvantageAirLightDimmable(AdvantageAirLight):
 
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the light on and optionally set the brightness."""
-        data = {"id": self._id, "state": ADVANTAGE_AIR_STATE_ON}
+        data = {self._id: {"id": self._id, "state": ADVANTAGE_AIR_STATE_ON}}
         if ATTR_BRIGHTNESS in kwargs:
-            data["value"] = round(kwargs[ATTR_BRIGHTNESS] * 100 / 255)
+            data[self._id]["value"] = round(kwargs[ATTR_BRIGHTNESS] * 100 / 255)
         await self.async_change(data)
 
 
@@ -106,7 +110,9 @@ class AdvantageAirThingLightDimmable(AdvantageAirThingEntity, LightEntity):
         """Turn the light on by setting the brightness."""
         await self.async_change(
             {
-                "id": self._id,
-                "value": round(kwargs.get(ATTR_BRIGHTNESS, 255) * 100 / 255),
+                self._id: {
+                    "id": self._id,
+                    "value": round(kwargs.get(ATTR_BRIGHTNESS, 255) * 100 / 255),
+                }
             }
         )
