@@ -30,7 +30,7 @@ class advantage_air:
         self.session = session
         self.retry = retry
 
-        self.aircon = self.advantage_air_endpoint(ip, port, session, retry, "setAircons")
+        self.aircon = self.advantage_air_endpoint(ip, port, session, retry, "setAircon")
         self.lights = self.advantage_air_endpoint(ip, port, session, retry, "setLights")
         self.things = self.advantage_air_endpoint(ip, port, session, retry, "setThings")
 
