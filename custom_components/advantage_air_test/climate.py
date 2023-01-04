@@ -295,7 +295,7 @@ class AdvantageAirZone(AdvantageAirZoneEntity, ClimateEntity):
                     "zones": {
                         self.zone_key: {
                             "state": ADVANTAGE_AIR_STATE_OPEN
-                            if hvac_mode == HVACMode.OFF
+                            if hvac_mode != HVACMode.OFF
                             else ADVANTAGE_AIR_STATE_CLOSE
                         }
                     }
