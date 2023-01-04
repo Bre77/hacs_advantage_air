@@ -199,9 +199,9 @@ class advantage_air:
                     if "aircons" in data:
                         return data
             except (
-                aiohttp.ClientError, 
-                aiohttp.ClientConnectorError, 
-                aiohttp.client_exceptions.ServerDisconnectedError, 
+                aiohttp.ClientError,
+                aiohttp.ClientConnectorError,
+                aiohttp.client_exceptions.ServerDisconnectedError,
                 ConnectionResetError,
             ) as err:
                 error = err
@@ -332,7 +332,7 @@ class advantage_air:
                             if data["ack"] == False:
                                 raise ApiError(data["reason"])
                     except (
-                        aiohttp.client_exceptions.ServerDisconnectedError, 
+                        aiohttp.client_exceptions.ServerDisconnectedError,
                         ConnectionResetError,
                     ) as err:
                         # Recoverable error, reinsert the changes and try again in a second
