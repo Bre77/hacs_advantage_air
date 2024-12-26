@@ -1,3 +1,5 @@
+# DO NOT USE THIS ANYMORE
+
 # Advantage Air Test
 The testing version of Home Assistant Advantage Air integration. This release supports MyAir, MyLights, and MyPlace (MyThings).
 
